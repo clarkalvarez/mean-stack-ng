@@ -1,0 +1,49 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <img [src]="imageSrc || 'http://placehold.it/180'" alt="your image" style="width: 100%;"/> 
+        <input type='file' (change)="readURL($event);" />
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="tutorial.name"
+            name="name"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Department</label>
+          <input
+            class="form-control"
+            id="Department"
+            required
+            [(ngModel)]="tutorial.department"
+            name="Department"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="title">Position</label>
+          <input
+            type="text"
+            class="form-control"
+            id="position"
+            required
+            [(ngModel)]="tutorial.position"
+            name="position"
+          />
+        </div>
+        <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Tutorial was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newTutorial()">Add</button>
+      </div>
+    </div>
+  </div>
